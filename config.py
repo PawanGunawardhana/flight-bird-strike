@@ -25,12 +25,19 @@ IN_COLAB = _in_colab()
 class Config:
     def __init__(self):
         if IN_COLAB:
-            # Mount Google Drive first:  from google.colab import drive; drive.mount('/content/drive')
-            # Then upload your project folder to MyDrive/Flight-Bird-Strike/
-            self.PROJECT_ROOT   = "/content/drive/MyDrive/Flight-Bird-Strike"
-            self.DATA_ROOT      = "/content/drive/MyDrive/Flight-Bird-Strike/data"
-            # Raw datasets folder on Drive (upload your xlsx/csv here)
-            self.RAW_DATA_DIR   = "/content/drive/MyDrive/Flight-Bird-Strike/data/raw"
+            # Workflow:
+            #   1. GitHub repo is cloned to /content/flight-bird-strike  (by setup cell)
+            #   2. Drive is mounted at /content/drive                     (by setup cell)
+            #   3. Public.xlsx + Bird_strikes.csv are copied from Drive   (by setup cell)
+            #      source: MyDrive/Flight-Bird-Strike-MyResearch/data/raw/
+            #      dest:   /content/flight-bird-strike/data/raw/
+            # config.py then works identically to local — just pointing at the cloned repo.
+            self.PROJECT_ROOT   = "/content/flight-bird-strike"
+            self.DATA_ROOT      = "/content/flight-bird-strike/data"
+            self.RAW_DATA_DIR   = "/content/flight-bird-strike/data/raw"
+
+            # Path to your datasets on Google Drive (used by the setup cell only)
+            self.DRIVE_RAW_DIR  = "/content/drive/MyDrive/Flight-Bird-Strike-MyResearch/data/raw"
         else:
             # Local Windows / VS Code
             # Automatically resolve paths relative to this config.py file

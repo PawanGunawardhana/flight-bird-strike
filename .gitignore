@@ -15,18 +15,19 @@ venv/
 .ipynb_checkpoints/
 */.ipynb_checkpoints/
 
-# Data - large files, do NOT commit raw data to GitHub
+# Data - NEVER commit large data files to GitHub
 data/raw/
 data/external/
+data/processed/
 *.xlsx
 *.csv
 *.zip
 *.parquet
 
-# Keep processed data and .gitkeep files
-!data/processed/.gitkeep
+# Keep folder placeholders only
 !data/raw/.gitkeep
 !data/external/.gitkeep
+!data/processed/.gitkeep
 
 # Saved models - large binary files
 saved_models/*.pkl
