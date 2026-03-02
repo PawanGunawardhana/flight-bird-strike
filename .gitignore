@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+.env
+.venv
+env/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# Data - large files, do NOT commit raw data to GitHub
+data/raw/
+data/external/
+*.xlsx
+*.csv
+*.zip
+*.parquet
+
+# Keep processed data and .gitkeep files
+!data/processed/.gitkeep
+!data/raw/.gitkeep
+!data/external/.gitkeep
+
+# Saved models - large binary files
+saved_models/*.pkl
+saved_models/*.joblib
+saved_models/*.h5
+saved_models/*.pt
+!saved_models/.gitkeep
+
+# Reports - keep figures, ignore large result files
+reports/results/*.csv
+!reports/results/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# VS Code
+.vscode/settings.json
+.vscode/launch.json
+
+# IDE
+.idea/
+*.swp
