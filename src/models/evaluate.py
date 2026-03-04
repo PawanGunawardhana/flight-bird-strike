@@ -55,12 +55,13 @@ def plot_feature_importance(model, feature_cols: list, top_n: int = 20,
         return
 
     importances = clf.feature_importances_
-    indices = np.argsort(importances)[-top_n:][::-1]
+    # argsort ascending, take top_n — already in ascending order for barh
+    indices = np.argsort(importances)[-top_n:]
 
     fig, ax = plt.subplots(figsize=(10, 8))
     ax.barh(
-        [feature_cols[i] for i in reversed(indices)],
-        importances[reversed(indices)],
+        [feature_cols[i] for i in indices],
+        importances[indices],
         color="steelblue"
     )
     ax.set_xlabel("Importance", fontsize=12)
